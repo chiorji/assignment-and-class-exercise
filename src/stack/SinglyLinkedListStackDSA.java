@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.EmptyStackException;
+
 public class SinglyLinkedListStackDSA<T> {
     private int size = 0;
     private Node<T> head = null;
@@ -43,7 +44,7 @@ public class SinglyLinkedListStackDSA<T> {
         if (getSize() == 1) {
             T data = current.data;
             head = null;
-            --size;
+            size = 0;
             return data;
         }
         
@@ -54,8 +55,7 @@ public class SinglyLinkedListStackDSA<T> {
         
         // Grab the data of the current node, which is the last node in the list
         T data = current.data;
-        assert previous != null;
-        previous.next = null;
+        if (previous != null) previous.next = null;
         --size;
         return data;
     }
@@ -69,15 +69,18 @@ public class SinglyLinkedListStackDSA<T> {
         return current.data;
     }
     
+    public T peekFirst(){
+        if (isEmpty()) throw new EmptyStackException();
+        return head.data;
+    }
+    
     public boolean isEmpty() {
-        return getSize() == 0;
+        return head == null;
     }
     
     public void clearStackEntry() {
-        if (isEmpty()) return;
-        for (int i = 0; i < size; i++) {
-            pop();
-        }
+        if (isEmpty()) throw new EmptyStackException();
+        head = null;
         size = 0;
     }
     
