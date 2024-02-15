@@ -14,7 +14,7 @@ public class FixedSizeArrayStack<T> {
     }
     
     public FixedSizeArrayStack(int capacity) {
-        if(capacity < 0) throw new IllegalArgumentException("Illegal capacity: " + capacity);
+        if (capacity < 0) throw new IllegalArgumentException("Illegal capacity: " + capacity);
         this.MAX_CAPACITY = capacity;
         stack = (T[]) new Object[capacity];
     }
@@ -42,6 +42,11 @@ public class FixedSizeArrayStack<T> {
         T value = stack[top];
         top = top - 1;
         return value;
+    }
+    
+    public T peek() {
+        if (isEmpty()) throw new EmptyStackException();
+        return stack[top];
     }
     
     @Override

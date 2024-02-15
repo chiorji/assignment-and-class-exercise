@@ -23,6 +23,7 @@ public class ArrayStackTest {
         strStack.push("Stack with a fixed size");
         strStack.push("Here comes the end!");
         
+        System.out.println("Peek: " + strStack.peek());
         System.out.println("Size: " + strStack.getSize());
         System.out.println("String Stack: " + strStack.toString());
         strStack.push("Would error, no empty slot in the stack");

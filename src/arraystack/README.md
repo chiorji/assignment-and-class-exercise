@@ -56,6 +56,20 @@ public class FixedSizeArrayStack<T> {
     }
 ```
 
+### Peek
+1. START
+2. Check if the stack is empty
+3. If the stack is empty, produce an error and exit
+4. Return the top-most element in the stack
+5. END
+
+```java
+  public T peek() {
+        if (isEmpty()) throw new EmptyStackException();
+        return stack[top];
+    }
+```
+
 ### Traversing the stack
 ```java
 @Override
